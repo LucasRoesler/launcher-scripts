@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd /home/lucas/code/rescrobbler-update && poetry run python -m rescrobbler_update
+systemctl --user restart rescrobbled.service
+

@@ -1,0 +1,16 @@
+version: 3
+
+env:
+  USER_BIN: '{{ default "~/.local/bin" .USER_BIN }}'
+  SCRIPTS_DIR: '~/.local/share/pop-launcher/scripts'
+
+tasks:
+  install:
+    desc: |
+      Install the bins to the user bin directory in .local using ln
+      Install the scripts to the pop-launcher scripts directory, using ln
+    cmds:
+      - mkdir -p {{.USER_BIN}}
+      - mkdir -p {{.SCRIPTS_DIR}}
+      - ln -sf {{.ROOT_DIR}}/bin/* {{.USER_BIN}}
+      - ln -sf {{.ROOT_DIR}}/scripts/* {{.SCRIPTS_DIR}}
